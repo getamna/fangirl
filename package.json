@@ -1,6 +1,6 @@
 {
   "name": "fangirl",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Makes code management easier when working across multiple repos",
   "bin": "dist/cli.js",
   "lib": "dist/cli.js",

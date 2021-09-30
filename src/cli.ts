@@ -170,13 +170,13 @@ switch (mainOptions.command) {
           type: Boolean,
         },
       ];
-      console.log(mainOptions._unknown);
+      
       const mergeOptions = commandLineArgs(subOptions, {
         argv: mainOptions._unknown || [],
         stopAtFirstUnknown: true,
       });
       Main.runAll(
-        `npm run ${script}`,
+        `run ${script}`,
         mergeOptions.parallel,
         mergeOptions.dryRun,
         mergeOptions.packages
