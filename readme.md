@@ -91,4 +91,4 @@ tsc -w
 node dist/cli.js {args here}
 ```
 
-No warranty. Feel free to open an issue, or contribute any changes. Could use some tests!
+Feel free to open an issue, or contribute any changes. Could use some tests!

@@ -1,8 +1,9 @@
 {
   "name": "fangirl",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Makes code management easier when working across multiple repos",
-  "bin": "js/cli.js",
+  "bin": "dist/cli.js",
+  "lib": "dist/cli.js",
   "scripts": {
     "test": "mocha"
   },
@@ -12,6 +13,7 @@
     "command-line-usage": "^6.1.1",
     "concurrently": "^6.2.2",
     "git-js": "^1.1.1",
+    "node-prune": "^1.0.2",
     "randomcolor": "^0.6.2",
     "semver": "^7.3.5",
     "shelljs": "^0.8.4",
