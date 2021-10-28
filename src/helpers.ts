@@ -1,4 +1,11 @@
-const pjson = require(process.cwd() + "/package.json");
+let pjson = { repos: [] };
+try {
+  pjson = require(process.cwd() + "/package.json");
+} catch (ex) {
+  console.log(
+    "Not running fangirl within a package. May not work as expected."
+  );
+}
 import fs from "fs";
 import path from "path";
 import simpleGit from "simple-git";

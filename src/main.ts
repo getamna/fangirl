@@ -31,6 +31,30 @@ export function install(targetPackages?: string[]) {
   runAll("install", false, false, targetPackages);
 }
 
+export async function getCurrentBranch(targetPackages?: string[]) {
+  const packageMap = Helpers.findRequestedPackages();
+  for (const packageName in packageMap) {
+    // skip if not in target packages
+    if (
+      targetPackages &&
+      targetPackages.length > 0 &&
+      !targetPackages.includes(packageName)
+    )
+      continue;
+    // for each package,
+    const repoPath = path.resolve(packageMap[packageName].path);
+    const git = simpleGit(repoPath);
+    try {
+      const branches = await git.branch();
+      const currentBranch = branches.current;
+
+      console.log(`Package: ${packageName} \t Branch: ${currentBranch}`);
+    } catch (ex) {
+      console.log(ex);
+    }
+  }
+}
+
 export async function checkOutBranch(
   branchName: string,
   convertMasterToMain?: boolean,

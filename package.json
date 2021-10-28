@@ -1,10 +1,11 @@
 {
   "name": "fangirl",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "Makes code management easier when working across multiple repos",
   "bin": "dist/cli.js",
   "lib": "dist/cli.js",
   "scripts": {
+    "release": "tsc  && npm publish",
     "test": "mocha"
   },
   "dependencies": {

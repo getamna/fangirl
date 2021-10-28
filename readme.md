@@ -63,6 +63,7 @@ A few commands exist to help with creating repo cutting feature changes
 
 | command                     | description                                                                    |
 | --------------------------- | ------------------------------------------------------------------------------ |
+| `fangirl branch`            | will tell you what branch you're on in each repo|
 | `fangirl checkout <branch>` | will create or checkout a git branch in all of the requested repos             |
 | `fangirl drop`              | if uncommited changes exist, will drop all the changes across all of the repos |
 | `fangirl update`            | upgrades to new package version and updates the package.json of all dependents |

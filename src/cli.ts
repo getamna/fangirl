@@ -7,6 +7,8 @@ import commandLineArgs, {
 import commandLineUsage from "command-line-usage";
 import * as Main from "./main";
 
+const VERSION_NUM = "1.0.8";
+
 const sections = [
   {
     header: "Fangirl",
@@ -37,6 +39,10 @@ const sections = [
       {
         name: "checkout",
         summary: "Creates and checkout a branch in all repos",
+      },
+      {
+        name: "branch",
+        summary: "tells you the current branch",
       },
       {
         name: "drop",
@@ -85,6 +91,11 @@ switch (mainOptions.command) {
       Main.listAllPackages();
     }
     break;
+  case "version":
+    {
+      console.log(VERSION_NUM);
+    }
+    break;
   case "install":
     {
       const mergeDefinitions: OptionDefinition[] = [
@@ -108,6 +119,20 @@ switch (mainOptions.command) {
   case "unlink":
     {
       Main.handleSymLinks(true);
+    }
+    break;
+  case "branch":
+    {
+      const mergeDefinitions: OptionDefinition[] = [
+        {
+          name: "packages",
+          alias: "p",
+          type: String,
+          multiple: true,
+        },
+      ];
+      const mergeOptions = commandLineArgs(mergeDefinitions, { argv });
+      Main.getCurrentBranch(mergeOptions.packages);
     }
     break;
   case "checkout":
@@ -170,7 +195,7 @@ switch (mainOptions.command) {
           type: Boolean,
         },
       ];
-      
+
       const mergeOptions = commandLineArgs(subOptions, {
         argv: mainOptions._unknown || [],
         stopAtFirstUnknown: true,
